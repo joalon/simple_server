@@ -1,0 +1,14 @@
+{application, simple_server,
+ [{description, "A simple erlang application serving content from Redis."},
+  {vsn, "0.0.1"},
+  {registered, []},
+  {modules, []},
+  {applications, [
+                 kernel
+                 ,stdlib
+                 ,cowboy
+		 ,eredis
+                 ]},
+  {mod, {simple_server_app, []}},
+  {env, []}
+ ]}.
