@@ -12,7 +12,11 @@ init(Req0, Opts) ->
 	eredis:stop(C),
 
 	{ok, Hostname} = inet:gethostname(),
-	Reply = << list_to_binary("From host: ")/binary, list_to_binary(Hostname)/binary, list_to_binary(", got: ")/binary, PageViewCounter/binary >>,
+	BinaryHostname = list_to_binary(Hostname),
+	From = list_to_binary("From host: "),
+	Got = list_to_binary(", got: "),
+
+	Reply = << From/binary, BinaryHostname/binary, Got/binary, PageViewCounter/binary >>,
 
 	Req = cowboy_req:reply(200, [{<<"content-type">>, <<"text/plain">>}], Reply, Req0),
 	{ok, Req, Opts}.
