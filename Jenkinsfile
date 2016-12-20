@@ -9,7 +9,7 @@ node {
 	}
 
 	stage('Run unit tests') {
-		sh 'rebar3 eunit'
+		sh 'rebar3 eunit' //placeholder
 	} 
 
 	stage('Archive tar') {
