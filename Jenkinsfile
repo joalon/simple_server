@@ -5,9 +5,15 @@ node {
 	}
 
 	stage('Compile') {
-		sh 'rebar3 compile'
-		sh 'rebar3 as prod tar'
-		archiveArtifacts artifacts: '_build/prod/rel/simple_server/*.tar.gz', excludes: null
+		sh 'rebar3 tar'
+	}
+
+	stage('Run unit tests') {
+		sh 'rebar3 eunit'
 	} 
+
+	stage('Archive tar') {
+		archiveArtifacts artifacts: '_build/default/rel/simple_server/*.tar.gz', excludes: null
+	}
 
 }
