@@ -12,6 +12,7 @@ curl -H "Host: page_view.local" <DOCKERS_IP>/page_views
 ```
 
 ## Todo:
+* Figure out a way to automatically read VIRTUAL_HOST into docker-compose.yml
 * Deploy to a live environment with ansible
 * Do integration tests in Jenkins
 * add cool functionality (shoutcast? messaging? file upload/download?)
